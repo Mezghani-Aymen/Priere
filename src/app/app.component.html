@@ -1,11 +1,11 @@
-<div class="app-wrapper">
+<div class="app-wrapper" [ngClass]="{ 'theme-default': true }">
   <header class="app-header">
     <div class="header-icon">🕌</div>
-    <h1>HORAIRES DE PRIÈRE</h1>
-    <p class="subtitle">Application Prières</p>
+    <h1 [ngStyle]="{ 'color': '#1e3a47', 'letter-spacing': '1px' }">HORAIRES DE PRIÈRE</h1>
+    <p class="subtitle" [ngStyle]="{ 'color': '#666666' }">Application Prières</p>
   </header>
 
-  <nav class="app-nav">
+  <nav class="app-nav" [ngClass]="{ 'nav-shadow': true }">
     <a
       [routerLink]="['/search']"
       routerLinkActive="active"
@@ -22,7 +22,6 @@
     </a>
   </nav>
 
-  <!-- Routed Page View -->
   <main class="app-content">
     <router-outlet />
   </main>
