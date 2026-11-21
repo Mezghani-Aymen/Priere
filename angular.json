@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mini_project": {
+    "priere": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/mini_project",
+            "outputPath": "dist/priere",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "mini_project:build:production"
+              "buildTarget": "priere:build:production"
             },
             "development": {
-              "buildTarget": "mini_project:build:development"
+              "buildTarget": "priere:build:development"
             }
           },
           "defaultConfiguration": "development"
