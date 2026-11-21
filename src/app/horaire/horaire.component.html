@@ -1,1 +1,21 @@
-<p>horaire works!</p>
+<div class="prayer-row" [class.next-prayer]="isNext">
+  <div class="prayer-info">
+    <span class="prayer-icon">
+      @switch (name) {
+      @case ('Fajr') { 🌙 }
+      @case ('Dhuhr') { ☀️ }
+      @case ('Asr') { 🌤️ }
+      @case ('Maghrib') { 🌇 }
+      @case ('Isha') { 🌃 }
+      @default { 🕌 }
+      }
+    </span>
+    <span class="prayer-name">{{ label }}</span>
+
+    @if (isNext) {
+    <span class="next-badge">Prochaine</span>
+    }
+  </div>
+
+  <span class="prayer-time">{{ time }}</span>
+</div>
