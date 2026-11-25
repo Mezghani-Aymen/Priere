@@ -1,0 +1,111 @@
+.controls-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.search-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0 0.5rem;
+  min-width: 140px;
+  background: #fff;
+}
+
+.input-icon {
+  margin-right: 0.4rem;
+  color: #888;
+}
+
+.city-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  background: transparent;
+}
+
+.btn {
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: #2c5364;
+  color: #fff;
+  border-color: #2c5364;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #1e3a47;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.method-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.method-select {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.85rem;
+  background: #fff;
+  outline: none;
+  min-width: 150px;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #fff;
+  border-top-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.error-banner {
+  background: #fff3f3;
+  border: 1px solid #f5c6c6;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  color: #c0392b;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
