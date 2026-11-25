@@ -1,0 +1,51 @@
+<section class="controls-card">
+  <div class="location-header-row">
+    <div
+      class="location-badge"
+      [ngClass]="{ 'has-coords': coords !== null, 'searching-coords': coords === null }"
+      [ngStyle]="{ 'background-color': coords ? '#eef6fb' : '#f8fafc' }"
+    >
+      @if (coords) {
+        <span>📍 Latitude : {{ coords.latitude | number:'1.4-4' }}° | Longitude : {{ coords.longitude | number:'1.4-4' }}°</span>
+      } @else {
+        <span>📍 Recherche de votre position GPS...</span>
+      }
+    </div>
+    <button class="btn btn-secondary" (click)="loadFromGeolocation()" [disabled]="loading" title="Actualiser ma position">
+      🔄 Actualiser
+    </button>
+  </div>
+
+  <div class="method-row">
+    <label for="method">Méthode de calcul :</label>
+    <select
+      id="method"
+      [(ngModel)]="selectedMethod"
+      (ngModelChange)="onMethodChange()"
+      class="method-select"
+    >
+      @for (m of methods; track m.id) {
+        <option [ngValue]="m.id">{{ m.name }}</option>
+      }
+    </select>
+  </div>
+</section>
+
+@if (loading && !timings) {
+  <div class="loading-box">
+    <span class="spinner"></span>
+    <p>Chargement des horaires pour votre position...</p>
+  </div>
+}
+
+@if (error) {
+  <div class="error-banner" [ngStyle]="{ 'border-left': '4px solid #c0392b' }">⚠️ {{ error }}</div>
+}
+
+<app-prayer-card
+  [cityName]="'Ma Position Actuelle'"
+  [dateGregorian]="dateGregorian"
+  [dateHijri]="dateHijri"
+  [timings]="timings"
+  [loading]="loading"
+/>
