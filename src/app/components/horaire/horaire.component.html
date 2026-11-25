@@ -1,0 +1,49 @@
+<div
+  class="prayer-row"
+  [ngClass]="{ 'next-prayer': isNext }"
+  [ngStyle]="{
+    'background-color': isNext ? (diffMinutes !== null && diffMinutes <= 15 ? 'rgba(' + redDegree + ', 0, 0, 0.08)' : '#eef6fb') : 'transparent',
+    'border-left': isNext ? (diffMinutes !== null && diffMinutes <= 15 ? '4px solid rgb(' + redDegree + ', 0, 0)' : '4px solid #2c5364') : 'none'
+  }"
+>
+  <div class="prayer-info">
+    <span class="prayer-icon">
+      @switch (name) {
+        @case ('Fajr') { 🌙 }
+        @case ('Dhuhr') { ☀️ }
+        @case ('Asr') { 🌤️ }
+        @case ('Maghrib') { 🌇 }
+        @case ('Isha') { 🌃 }
+        @default { 🕌 }
+      }
+    </span>
+    <span
+      class="prayer-name"
+      [ngStyle]="{ color: isNext && diffMinutes !== null && diffMinutes <= 15 ? 'rgb(' + redDegree + ', 0, 0)' : 'inherit' }"
+    >
+      {{ label }}
+    </span>
+
+    @if (isNext) {
+      <span
+        class="next-badge"
+        [ngStyle]="{
+          'background-color': diffMinutes !== null && diffMinutes <= 15 ? 'rgb(' + redDegree + ', 0, 0)' : '#2c5364',
+          color: '#ffffff'
+        }"
+      >
+        Prochaine
+      </span>
+    }
+  </div>
+
+  <span
+    class="prayer-time"
+    [ngStyle]="{
+      color: isNext ? (diffMinutes !== null && diffMinutes <= 15 ? 'rgb(' + redDegree + ', 0, 0)' : '#1e3a47') : '#2c5364',
+      'font-weight': isNext ? '700' : '600'
+    }"
+  >
+    {{ time }}
+  </span>
+</div>
