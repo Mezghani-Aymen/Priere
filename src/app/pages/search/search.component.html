@@ -1,0 +1,52 @@
+<section class="controls-card" [ngClass]="{ 'controls-loading': loading }">
+  <div class="search-row">
+    <div class="input-group">
+      <span class="input-icon">🏙️</span>
+      <input
+        type="text"
+        [(ngModel)]="cityInput"
+        placeholder="Entrez une ville (ex: Tunis)..."
+        class="city-input"
+        (keyup.enter)="search()"
+      />
+    </div>
+    <button
+      class="btn btn-primary"
+      (click)="search()"
+      [disabled]="loading"
+      [ngClass]="{ 'btn-disabled': loading }"
+    >
+      @if (loading) {
+        <span class="spinner"></span>
+      } @else {
+        🔍 Rechercher
+      }
+    </button>
+  </div>
+
+  <div class="method-row">
+    <label for="method">Méthode de calcul :</label>
+    <select
+      id="method"
+      [(ngModel)]="selectedMethod"
+      (ngModelChange)="onMethodChange()"
+      class="method-select"
+    >
+      @for (m of methods; track m.id) {
+        <option [ngValue]="m.id">{{ m.name }}</option>
+      }
+    </select>
+  </div>
+</section>
+
+@if (error) {
+  <div class="error-banner" [ngStyle]="{ 'border-left': '4px solid #c0392b' }">⚠️ {{ error }}</div>
+}
+
+<app-prayer-card
+  [cityName]="cityName"
+  [dateGregorian]="dateGregorian"
+  [dateHijri]="dateHijri"
+  [timings]="timings"
+  [loading]="loading"
+/>
