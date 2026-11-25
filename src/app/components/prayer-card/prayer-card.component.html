@@ -1,0 +1,67 @@
+@if (prayers.length > 0 && !loading) {
+  <section class="prayer-card" [ngClass]="{ 'loaded-card': !loading }">
+    <div class="prayer-card-header">
+      <div class="city-name">📍 Ville : {{ cityName }}</div>
+      <div class="dates-line">
+        <span>📅 Date : {{ dateGregorian }}</span>
+        @if (dateHijri) {
+          <span class="date-hijri" [ngStyle]="{ 'font-weight': '600', color: '#2c5364' }">
+            🌙 {{ dateHijri }}
+          </span>
+        }
+      </div>
+    </div>
+
+    <div class="prayer-list">
+      @for (prayer of prayers; track prayer.name) {
+        <horaire-component
+          [name]="prayer.name"
+          [label]="prayer.label"
+          [time]="prayer.time"
+          [isNext]="prayer.isNext"
+          [diffMinutes]="prayer.isNext ? diffMinutes : null"
+        />
+      }
+    </div>
+
+    <div
+      class="countdown-box"
+      [ngClass]="{ 'countdown-active': nextPrayer !== '' }"
+      [ngStyle]="{
+        'background-color': diffMinutes <= 15 ? 'rgba(' + redDegree + ', 0, 0, 0.05)' : '#f0f7fb',
+        'border-top': diffMinutes <= 15 ? '2px solid rgb(' + redDegree + ', 0, 0)' : '1px solid #ddd'
+      }"
+    >
+      <div class="countdown-section">
+        <span class="countdown-label">Prochaine prière :</span>
+        <span
+          class="countdown-prayer"
+          [ngStyle]="{ color: diffMinutes <= 15 ? 'rgb(' + redDegree + ', 0, 0)' : '#1e3a47' }"
+        >
+          {{ nextPrayer }} @if (nextPrayerTime) { ({{ nextPrayerTime }}) }
+        </span>
+      </div>
+
+      <div class="countdown-section">
+        <span class="countdown-label">Temps restant :</span>
+        <span
+          class="countdown-time"
+          [ngStyle]="{
+            color: diffMinutes <= 15 ? 'rgb(' + redDegree + ', 0, 0)' : 'rgb(44, 83, 100)',
+            'font-weight': 'bold'
+          }"
+        >
+          ⏱ {{ timeRemaining }}
+          @if (diffMinutes <= 15 && diffMinutes >= 0 && nextPrayer) {
+            <span
+              class="urgent-badge"
+              [ngStyle]="{ 'background-color': 'rgb(' + redDegree + ', 0, 0)' }"
+            >
+              Moins de 15 min !
+            </span>
+          }
+        </span>
+      </div>
+    </div>
+  </section>
+}
