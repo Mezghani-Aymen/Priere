@@ -1,0 +1,45 @@
+.prayer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.prayer-row:last-child {
+  border-bottom: none;
+}
+
+.prayer-row.next-prayer {
+  background: #eef6fb;
+  border-left: 3px solid #2c5364;
+}
+
+.prayer-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.prayer-icon {
+  font-size: 1.1rem;
+}
+
+.prayer-name {
+  font-size: 0.95rem;
+}
+
+.next-badge {
+  font-size: 0.7rem;
+  background: #2c5364;
+  color: #fff;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.prayer-time {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #2c5364;
+}
