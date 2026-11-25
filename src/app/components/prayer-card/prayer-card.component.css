@@ -1,0 +1,88 @@
+.prayer-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.prayer-card-header {
+  background: #f9fbfd;
+  border-bottom: 1px solid #e5edf2;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.city-name {
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: #1e3a47;
+}
+
+.dates-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.date-hijri {
+  color: #2c5364;
+  font-weight: 500;
+}
+
+.countdown-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  transition: all 0.4s ease;
+}
+
+.countdown-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.countdown-prayer {
+  font-weight: bold;
+}
+
+.countdown-time {
+  font-size: 1.15rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.urgent-badge {
+  font-size: 0.72rem;
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  margin-left: 0.5rem;
+  font-weight: bold;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.04);
+  }
+}
